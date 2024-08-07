@@ -1,0 +1,170 @@
+---
+const { imgSrc, imgAlt, price, imei } = Astro.props;
+---
+<qr-code data-price={price} data-imei={imei}>
+    <div class="flex flex-col justify-center items-center mt-5">
+        <div class="bg-sky-950 p-5 w-80 ">
+            <h1 class="text-3xl text-center">THAI QR<br> PAYMENT</h1>
+        </div>
+        <div class="mb-5 ">
+            <img id="toggle-img" class="min-w-full w-80 blur-sm" src={imgSrc} alt={imgAlt}/>
+        </div>
+        <div class="mt-5 text-center">
+            <button id="clickToPayButton" class="p-5 rounded-full text-3xl bg-blue-950 text-white">
+                ชำระเงิน
+            </button>
+        </div>
+
+    </div>
+</qr-code>
+
+<style>
+    .hide {
+        display: none;
+    }
+</style>
+<script>
+    import mqtt from 'mqtt'
+    import type { IMachineState } from '../models/stateMachine';
+
+    enum PaymentButtonText {
+        READY = "ชำระเงิน",
+        QUEUEING = "พี่ๆรอแปบน้า มีคนกำลังชำระเงิน"
+    }
+
+
+    const img = document.getElementById('toggle-img') as HTMLImageElement;
+    const button = document.getElementById('clickToPayButton') as HTMLButtonElement;
+    const mqttClient = mqtt.connect(
+        "wss://c9b659e84f864702832199817fa68785.s1.eu.hivemq.cloud:8884/mqtt",
+        {
+            username: 'mawin',
+            password: '.Action4lifestore',
+            rejectUnauthorized: false
+        })
+
+    const topicToUpdateState = '1/status';
+    const timeoutInMS = 30000;
+    const topicToOrder = '1/order';
+
+
+    function setBtnToReady() {
+        button.innerText = PaymentButtonText.READY
+        button.classList.remove("disabled:bg-slate-50", "disabled:text-slate-500",
+            "disabled:border-slate-200", "disabled:shadow-none")
+        button.disabled = false
+    }
+
+    function setBtnToBeQueueing() {
+        button.innerText = PaymentButtonText.QUEUEING
+        button.classList.add("disabled:bg-slate-50", "disabled:text-slate-500",
+            "disabled:border-slate-200", "disabled:shadow-none")
+        button.disabled = true
+    }
+
+    class QRCode extends HTMLElement {
+
+        constructor() {
+            super();
+            const { price, imei } = this.dataset
+            const twoDigitPrice = price?.split(".")[0]
+            const orderPayload = JSON.stringify({
+                imei: imei,
+                price: price
+            })
+
+
+            const qrCodePaymentImg = this.generatePromptpayLink("0878128538", twoDigitPrice);
+            const qrCodePaymentImgFake = this.generatePromptpayLink("0824979555", "50");
+
+            mqttClient.on('connect', (err) => {
+                console.log("Connected to server")
+                mqttClient.subscribe(topicToUpdateState, (err) => {
+                    if (err) {
+                        console.error("Can not connect to server")
+                    }
+                })
+            })
+
+            this.setupMqttClient();
+
+
+            const setQRCodeBlurAndShowBtnTimeOut = () => {
+                setTimeout(
+                    () => {
+                        button.innerText = PaymentButtonText.READY
+                        button.disabled = false;
+                        img.classList.add('blur-sm')
+                        img.src = qrCodePaymentImgFake
+                    }, timeoutInMS
+                )
+            }
+            const setUpButtonEventListener = () => {
+                button.addEventListener('click', () => {
+                    const now = new Date();
+                    const futureTime = new Date(now.getTime() + timeoutInMS).getTime();
+                    const stateBusyPreparation: IMachineState = {
+                        state: "busy",
+                        expirationTime: futureTime
+                    }
+
+                    if (
+                        img.classList.contains('blur-sm')
+                    ) {
+                        setQRCodeBlurAndShowBtnTimeOut();
+                        setBtnToBeQueueing();
+                        img.src = qrCodePaymentImg
+                        img.classList.remove('blur-sm', 'brightness-50')
+                        mqttClient.publish(topicToOrder, orderPayload);
+                        mqttClient.publish(topicToUpdateState, JSON.stringify(stateBusyPreparation), { retain: true });
+                    }
+                });
+            }
+            setUpButtonEventListener();
+
+        }
+
+        generatePromptpayLink(phoneNumber: string, amount: string) {
+            return `https://promptpay.io/${phoneNumber}/${amount}`
+        }
+
+        mqttMessageOnStateChangeCallback(topic: string, payload: ArrayBuffer) {
+            const jsonPayload = JSON.parse(payload.toString()) as IMachineState;
+            let setTimeOutButton: number;
+            const stateAvailablePreparation = JSON.stringify({
+                state: "available",
+                expirationTime: null
+            })
+            const now = new Date();
+            if (jsonPayload?.state === "busy") {
+                const dateFuture = new Date(jsonPayload.expirationTime);
+                setBtnToBeQueueing();
+                const differenceInMilliseconds = dateFuture.getTime() - now.getTime();
+
+                if (differenceInMilliseconds > 0) {
+                    setTimeOutButton = setTimeout(() => {
+                        setBtnToReady();
+                        img.classList.add('blur-sm')
+                        mqttClient.publish(topicToUpdateState, stateAvailablePreparation, { retain: true });
+                    }, differenceInMilliseconds);
+                }
+            }
+
+            if (jsonPayload?.state === "available") {
+                setBtnToReady();
+                img.classList.add('blur-sm')
+                clearTimeout(setTimeOutButton)
+            }
+
+        }
+
+        setupMqttClient() {
+            mqttClient.on('message', this.mqttMessageOnStateChangeCallback)
+
+        }
+
+
+    }
+
+    customElements.define('qr-code', QRCode);
+</script>

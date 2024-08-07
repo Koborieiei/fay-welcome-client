@@ -1,0 +1,73 @@
+---
+import QRCode from '../components/QRCode.astro';
+import Layout from '../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+    // Should be replaced with data from server
+    const machines = [
+        {
+            imei: "869329068279549",
+            machineNo: "1",
+            price: "40.00"
+        },
+        {
+            imei: "869329068280174",
+            machineNo: "2",
+            price: "20.00"
+        },
+        {
+            imei: "869329068279614",
+            machineNo: "3",
+            price: "40.00"
+        }]
+    return machines.map(({ imei, price, machineNo }) => {
+        return {
+            params: { slug: imei },
+            props: { price, machineNo, imei },
+        };
+    });
+}
+
+const { price, machineNo, imei } = Astro.props;
+const splitedPrice = price?.split(".")[0]
+---
+
+<Layout title="Welcome Machine.">
+    <main>
+        <div class="flex flex-col justify-around h-full">
+            <div class="mb-3">
+                <h2 class="text-4xl text-center text-black">
+                    เครื่องที่ {machineNo}
+                </h2>
+                <div class="mt-2 mb-2"></div>
+                <h1 class="text-7xl font-bold text-center text-black">
+                    {splitedPrice} บาท
+                </h1>
+            </div>
+            <QRCode price={price} imei={imei} imgSrc="https://promptpay.io/0878128538/40"/>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    main {
+        margin: auto;
+        padding: 1rem;
+        width: 800px;
+        max-width: calc(100% - 2rem);
+        color: white;
+        font-size: 20px;
+        line-height: 1.6;
+        font-family: kanit;
+    }
+
+
+</style>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
