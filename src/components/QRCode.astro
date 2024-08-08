@@ -74,7 +74,7 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
                 price: price
             })
 
-
+            // Phone number should be queried from back server.
             const qrCodePaymentImg = this.generatePromptpayLink("0878128538", twoDigitPrice);
             const qrCodePaymentImgFake = this.generatePromptpayLink("0824979555", "50");
 
@@ -150,7 +150,6 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
             if (jsonPayload?.state === "available") {
                 setBtnToReady();
                 img.classList.add('blur-sm')
-                console.log(setTimeOutButton)
                 clearTimeout(setTimeOutButton)
             }
 
