@@ -6,7 +6,7 @@ export async function getStaticPaths() {
     // Should be replaced with data from server
     const machines = [
         {
-            imei: "869329068279549",
+            imei: "869329068279747",
             machineNo: "1",
             price: "40.00"
         },
@@ -16,8 +16,13 @@ export async function getStaticPaths() {
             price: "20.00"
         },
         {
-            imei: "869329068279614",
+            imei: "869329068279911",
             machineNo: "3",
+            price: "20.00"
+        },
+        {
+            imei: "869329068279614",
+            machineNo: "4",
             price: "40.00"
         }]
     return machines.map(({ imei, price, machineNo }) => {

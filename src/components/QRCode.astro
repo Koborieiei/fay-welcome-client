@@ -46,6 +46,7 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
     const topicToUpdateState = '1/status';
     const timeoutInMS = 30000;
     const topicToOrder = '1/order';
+    let setTimeOutButton;
 
 
     function setBtnToReady() {
@@ -67,7 +68,7 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
         constructor() {
             super();
             const { price, imei } = this.dataset
-            const twoDigitPrice = price?.split(".")[0]
+            const twoDigitPrice = price?.split(".")[0] || ""
             const orderPayload = JSON.stringify({
                 imei: imei,
                 price: price
@@ -77,7 +78,7 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
             const qrCodePaymentImg = this.generatePromptpayLink("0878128538", twoDigitPrice);
             const qrCodePaymentImgFake = this.generatePromptpayLink("0824979555", "50");
 
-            mqttClient.on('connect', (err) => {
+            mqttClient.on('connect', () => {
                 console.log("Connected to server")
                 mqttClient.subscribe(topicToUpdateState, (err) => {
                     if (err) {
@@ -87,7 +88,6 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
             })
 
             this.setupMqttClient();
-
 
             const setQRCodeBlurAndShowBtnTimeOut = () => {
                 setTimeout(
@@ -105,7 +105,8 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
                     const futureTime = new Date(now.getTime() + timeoutInMS).getTime();
                     const stateBusyPreparation: IMachineState = {
                         state: "busy",
-                        expirationTime: futureTime
+                        expirationTime: futureTime,
+                        from: "welcome-client"
                     }
 
                     if (
@@ -121,21 +122,21 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
                 });
             }
             setUpButtonEventListener();
-
         }
 
         generatePromptpayLink(phoneNumber: string, amount: string) {
             return `https://promptpay.io/${phoneNumber}/${amount}`
         }
 
-        mqttMessageOnStateChangeCallback(topic: string, payload: ArrayBuffer) {
+        mqttMessageOnStateChangeCallback(_: string, payload: ArrayBuffer) {
             const jsonPayload = JSON.parse(payload.toString()) as IMachineState;
-            let setTimeOutButton: number;
             const stateAvailablePreparation = JSON.stringify({
                 state: "available",
-                expirationTime: null
-            })
+                expirationTime: null,
+                from: "welcome-client"
+            } as IMachineState)
             const now = new Date();
+
             if (jsonPayload?.state === "busy") {
                 const dateFuture = new Date(jsonPayload.expirationTime);
                 setBtnToBeQueueing();
@@ -153,6 +154,7 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
             if (jsonPayload?.state === "available") {
                 setBtnToReady();
                 img.classList.add('blur-sm')
+                console.log(setTimeOutButton)
                 clearTimeout(setTimeOutButton)
             }
 
@@ -160,7 +162,6 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
 
         setupMqttClient() {
             mqttClient.on('message', this.mqttMessageOnStateChangeCallback)
-
         }
 
 
