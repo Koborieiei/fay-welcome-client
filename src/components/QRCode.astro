@@ -46,7 +46,7 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
     const topicToUpdateState = '1/status';
     const timeoutInMS = 30000;
     const topicToOrder = '1/order';
-    let setTimeOutButton: NodeJS.Timeout;
+    let setTimeOutButton: number;
 
 
     function setBtnToReady() {
@@ -80,11 +80,7 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
 
             mqttClient.on('connect', () => {
                 console.log("Connected to server")
-                mqttClient.subscribe(topicToUpdateState, (err:Error) => {
-                    if (err) {
-                        console.error("Can not connect to server")
-                    }
-                })
+                mqttClient.subscribe(topicToUpdateState)
             })
 
             this.setupMqttClient();
@@ -134,7 +130,7 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
                 state: "available",
                 expirationTime: null,
                 from: "welcome-client"
-            } as IMachineState)
+            })
             const now = new Date();
 
             if (jsonPayload?.state === "busy") {
