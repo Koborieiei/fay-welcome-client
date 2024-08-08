@@ -86,7 +86,7 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
             this.setupMqttClient();
 
             const setQRCodeBlurAndShowBtnTimeOut = () => {
-                setTimeout(
+                window.setTimeout(
                     () => {
                         button.innerText = PaymentButtonText.READY
                         button.disabled = false;
@@ -139,7 +139,7 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
                 const differenceInMilliseconds = dateFuture.getTime() - now.getTime();
 
                 if (differenceInMilliseconds > 0) {
-                    setTimeOutButton = setTimeout(() => {
+                    setTimeOutButton = window.setTimeout(() => {
                         setBtnToReady();
                         img.classList.add('blur-sm')
                         mqttClient.publish(topicToUpdateState, stateAvailablePreparation, { retain: true });
