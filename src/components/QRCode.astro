@@ -11,25 +11,25 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
         </div>
         <div class="mt-5 text-center">
             <button id="clickToPayButton" class="p-5 rounded-full text-3xl bg-blue-950 text-white">
-                ชำระเงิน
+                แสดงคิวอาร์
             </button>
         </div>
 
     </div>
 </qr-code>
 
-<style>
-    .hide {
-        display: none;
-    }
-</style>
 <script>
     import mqtt from 'mqtt'
     import type { IMachineState } from '../models/stateMachine';
 
     enum PaymentButtonText {
-        READY = "ชำระเงิน",
+        READY = "แสดงคิวอาร์",
         QUEUEING = "พี่ๆรอแปบน้า มีคนกำลังชำระเงิน"
+    }
+
+    enum MachineStateMessage {
+        AVAILABLE = "available",
+        BUSY = "busy"
     }
 
 
@@ -44,8 +44,9 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
         })
 
     const topicToUpdateState = '1/status';
-    const timeoutInMS = 30000;
+    const timeoutInMS = 120000;
     const topicToOrder = '1/order';
+    const promptpayPhoneNumber = "0924932476"
     let setTimeOutButton: number;
 
 
@@ -75,7 +76,7 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
             })
 
             // Phone number should be queried from back server.
-            const qrCodePaymentImg = this.generatePromptpayLink("0878128538", twoDigitPrice);
+            const qrCodePaymentImg = this.generatePromptpayLink(promptpayPhoneNumber, twoDigitPrice);
             const qrCodePaymentImgFake = this.generatePromptpayLink("0824979555", "50");
 
             mqttClient.on('connect', () => {
@@ -100,7 +101,7 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
                     const now = new Date();
                     const futureTime = new Date(now.getTime() + timeoutInMS).getTime();
                     const stateBusyPreparation: IMachineState = {
-                        state: "busy",
+                        state: MachineStateMessage.BUSY,
                         expirationTime: futureTime,
                         from: "welcome-client"
                     }
@@ -127,18 +128,24 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
         mqttMessageOnStateChangeCallback(_: string, payload: ArrayBuffer) {
             const jsonPayload = JSON.parse(payload.toString()) as IMachineState;
             const stateAvailablePreparation = JSON.stringify({
-                state: "available",
+                state: MachineStateMessage.AVAILABLE,
                 expirationTime: null,
                 from: "welcome-client"
             })
-            const now = new Date();
 
-            if (jsonPayload?.state === "busy") {
-                const dateFuture = new Date(jsonPayload.expirationTime);
+            const timeNow = new Date().getTime();
+
+            if (jsonPayload?.state === MachineStateMessage.BUSY) {
+                const dateFuture = new Date(jsonPayload.expirationTime).getTime();
                 setBtnToBeQueueing();
-                const differenceInMilliseconds = dateFuture.getTime() - now.getTime();
+                const isShouldSetResetBtnToReady = (dateFuture - timeNow) > 0;
+                const differenceInMilliseconds = dateFuture - timeNow
 
-                if (differenceInMilliseconds > 0) {
+                if (timeNow >= dateFuture) {
+                    mqttClient.publish(topicToUpdateState, stateAvailablePreparation, { retain: true });
+                }
+
+                if (isShouldSetResetBtnToReady) {
                     setTimeOutButton = window.setTimeout(() => {
                         setBtnToReady();
                         img.classList.add('blur-sm')
@@ -147,7 +154,7 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
                 }
             }
 
-            if (jsonPayload?.state === "available") {
+            if (jsonPayload?.state === MachineStateMessage.AVAILABLE) {
                 setBtnToReady();
                 img.classList.add('blur-sm')
                 clearTimeout(setTimeOutButton)
@@ -158,7 +165,6 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
         setupMqttClient() {
             mqttClient.on('message', this.mqttMessageOnStateChangeCallback)
         }
-
 
     }
 
