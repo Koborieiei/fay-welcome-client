@@ -27,7 +27,7 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
-          ["@astrojs/check", "virtual:039da4a98aaa698cfcbfdc126bb7cfe4e9dd2e8ea3f9748f226f1804adcb6476fa713c407a2a322925aa9c9ae0f0b45f6830d2e80f544ef5e23a3986029506e0#npm:0.8.2"],\
+          ["@astrojs/check", "virtual:039da4a98aaa698cfcbfdc126bb7cfe4e9dd2e8ea3f9748f226f1804adcb6476fa713c407a2a322925aa9c9ae0f0b45f6830d2e80f544ef5e23a3986029506e0#npm:0.9.2"],\
           ["@astrojs/react", "virtual:039da4a98aaa698cfcbfdc126bb7cfe4e9dd2e8ea3f9748f226f1804adcb6476fa713c407a2a322925aa9c9ae0f0b45f6830d2e80f544ef5e23a3986029506e0#npm:3.6.1"],\
           ["@astrojs/tailwind", "virtual:039da4a98aaa698cfcbfdc126bb7cfe4e9dd2e8ea3f9748f226f1804adcb6476fa713c407a2a322925aa9c9ae0f0b45f6830d2e80f544ef5e23a3986029506e0#npm:5.1.0"],\
           ["@astrojs/ts-plugin", "npm:1.9.1"],\
@@ -81,18 +81,18 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@astrojs/check", [\
-      ["npm:0.8.2", {\
-        "packageLocation": "../../.yarn/berry/cache/@astrojs-check-npm-0.8.2-9d41a80d8a-10c0.zip/node_modules/@astrojs/check/",\
+      ["npm:0.9.2", {\
+        "packageLocation": "../../.yarn/berry/cache/@astrojs-check-npm-0.9.2-71dae4e605-10c0.zip/node_modules/@astrojs/check/",\
         "packageDependencies": [\
-          ["@astrojs/check", "npm:0.8.2"]\
+          ["@astrojs/check", "npm:0.9.2"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:039da4a98aaa698cfcbfdc126bb7cfe4e9dd2e8ea3f9748f226f1804adcb6476fa713c407a2a322925aa9c9ae0f0b45f6830d2e80f544ef5e23a3986029506e0#npm:0.8.2", {\
-        "packageLocation": "./.yarn/__virtual__/@astrojs-check-virtual-57be0add4c/3/.yarn/berry/cache/@astrojs-check-npm-0.8.2-9d41a80d8a-10c0.zip/node_modules/@astrojs/check/",\
+      ["virtual:039da4a98aaa698cfcbfdc126bb7cfe4e9dd2e8ea3f9748f226f1804adcb6476fa713c407a2a322925aa9c9ae0f0b45f6830d2e80f544ef5e23a3986029506e0#npm:0.9.2", {\
+        "packageLocation": "./.yarn/__virtual__/@astrojs-check-virtual-ed0fd46d2d/3/.yarn/berry/cache/@astrojs-check-npm-0.9.2-71dae4e605-10c0.zip/node_modules/@astrojs/check/",\
         "packageDependencies": [\
-          ["@astrojs/check", "virtual:039da4a98aaa698cfcbfdc126bb7cfe4e9dd2e8ea3f9748f226f1804adcb6476fa713c407a2a322925aa9c9ae0f0b45f6830d2e80f544ef5e23a3986029506e0#npm:0.8.2"],\
-          ["@astrojs/language-server", "virtual:57be0add4c68635653dad7a51fca6777a9fd3329f5fadc3d21e472a290c0a4b867f697dffb9570745efda48b644e9cf78c5d063e7050d4eb51bab05936c14773#npm:2.12.1"],\
+          ["@astrojs/check", "virtual:039da4a98aaa698cfcbfdc126bb7cfe4e9dd2e8ea3f9748f226f1804adcb6476fa713c407a2a322925aa9c9ae0f0b45f6830d2e80f544ef5e23a3986029506e0#npm:0.9.2"],\
+          ["@astrojs/language-server", "virtual:ed0fd46d2d8f45407adf7784ef541fd9a4eaca283771f9d50e315070f5f9886466c9434d36398223607a071ed8b8eff254623f3ba999f672de841c3bd3d96ac3#npm:2.13.4"],\
           ["@types/typescript", null],\
           ["chokidar", "npm:3.6.0"],\
           ["fast-glob", "npm:3.3.2"],\
@@ -115,6 +115,13 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
+      ["npm:2.10.3", {\
+        "packageLocation": "../../.yarn/berry/cache/@astrojs-compiler-npm-2.10.3-8ae2ffb9c3-10c0.zip/node_modules/@astrojs/compiler/",\
+        "packageDependencies": [\
+          ["@astrojs/compiler", "npm:2.10.3"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:2.9.2", {\
         "packageLocation": "../../.yarn/berry/cache/@astrojs-compiler-npm-2.9.2-4d368c94bb-10c0.zip/node_modules/@astrojs/compiler/",\
         "packageDependencies": [\
@@ -133,22 +140,22 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@astrojs/language-server", [\
-      ["npm:2.12.1", {\
-        "packageLocation": "../../.yarn/berry/cache/@astrojs-language-server-npm-2.12.1-1af6f7bfcc-10c0.zip/node_modules/@astrojs/language-server/",\
+      ["npm:2.13.4", {\
+        "packageLocation": "../../.yarn/berry/cache/@astrojs-language-server-npm-2.13.4-67dd1358d1-10c0.zip/node_modules/@astrojs/language-server/",\
         "packageDependencies": [\
-          ["@astrojs/language-server", "npm:2.12.1"]\
+          ["@astrojs/language-server", "npm:2.13.4"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:57be0add4c68635653dad7a51fca6777a9fd3329f5fadc3d21e472a290c0a4b867f697dffb9570745efda48b644e9cf78c5d063e7050d4eb51bab05936c14773#npm:2.12.1", {\
-        "packageLocation": "./.yarn/__virtual__/@astrojs-language-server-virtual-b91d448173/3/.yarn/berry/cache/@astrojs-language-server-npm-2.12.1-1af6f7bfcc-10c0.zip/node_modules/@astrojs/language-server/",\
+      ["virtual:ed0fd46d2d8f45407adf7784ef541fd9a4eaca283771f9d50e315070f5f9886466c9434d36398223607a071ed8b8eff254623f3ba999f672de841c3bd3d96ac3#npm:2.13.4", {\
+        "packageLocation": "./.yarn/__virtual__/@astrojs-language-server-virtual-55202fe1d2/3/.yarn/berry/cache/@astrojs-language-server-npm-2.13.4-67dd1358d1-10c0.zip/node_modules/@astrojs/language-server/",\
         "packageDependencies": [\
-          ["@astrojs/language-server", "virtual:57be0add4c68635653dad7a51fca6777a9fd3329f5fadc3d21e472a290c0a4b867f697dffb9570745efda48b644e9cf78c5d063e7050d4eb51bab05936c14773#npm:2.12.1"],\
-          ["@astrojs/compiler", "npm:2.9.2"],\
+          ["@astrojs/language-server", "virtual:ed0fd46d2d8f45407adf7784ef541fd9a4eaca283771f9d50e315070f5f9886466c9434d36398223607a071ed8b8eff254623f3ba999f672de841c3bd3d96ac3#npm:2.13.4"],\
+          ["@astrojs/compiler", "npm:2.10.3"],\
           ["@jridgewell/sourcemap-codec", "npm:1.5.0"],\
           ["@types/prettier", null],\
           ["@types/prettier-plugin-astro", null],\
-          ["@volar/kit", "virtual:b91d44817373e81d6e7e947d0ffab7be1102a88897611d3cccd0c8726a19be124766efbf2118abe6cd0efa47ac4e0f53b27d2af94f4e44a553129f9b717ae854#npm:2.4.0-alpha.18"],\
+          ["@volar/kit", "virtual:55202fe1d2deb924c35d75893eed05be79f1ce998cb2df3d4e14ea66d24fb77cf67db904a59c2a0e16a8c5f2021288b1837c72f221c73a997d2222397af6c1f3#npm:2.4.0-alpha.18"],\
           ["@volar/language-core", "npm:2.4.0-alpha.18"],\
           ["@volar/language-server", "npm:2.4.0-alpha.18"],\
           ["@volar/language-service", "npm:2.4.0-alpha.18"],\
@@ -157,12 +164,12 @@ const RAW_RUNTIME_STATE =
           ["muggle-string", "npm:0.4.1"],\
           ["prettier", null],\
           ["prettier-plugin-astro", null],\
-          ["volar-service-css", "virtual:b91d44817373e81d6e7e947d0ffab7be1102a88897611d3cccd0c8726a19be124766efbf2118abe6cd0efa47ac4e0f53b27d2af94f4e44a553129f9b717ae854#npm:0.0.59"],\
-          ["volar-service-emmet", "virtual:b91d44817373e81d6e7e947d0ffab7be1102a88897611d3cccd0c8726a19be124766efbf2118abe6cd0efa47ac4e0f53b27d2af94f4e44a553129f9b717ae854#npm:0.0.59"],\
-          ["volar-service-html", "virtual:b91d44817373e81d6e7e947d0ffab7be1102a88897611d3cccd0c8726a19be124766efbf2118abe6cd0efa47ac4e0f53b27d2af94f4e44a553129f9b717ae854#npm:0.0.59"],\
-          ["volar-service-prettier", "virtual:b91d44817373e81d6e7e947d0ffab7be1102a88897611d3cccd0c8726a19be124766efbf2118abe6cd0efa47ac4e0f53b27d2af94f4e44a553129f9b717ae854#npm:0.0.59"],\
-          ["volar-service-typescript", "virtual:b91d44817373e81d6e7e947d0ffab7be1102a88897611d3cccd0c8726a19be124766efbf2118abe6cd0efa47ac4e0f53b27d2af94f4e44a553129f9b717ae854#npm:0.0.59"],\
-          ["volar-service-typescript-twoslash-queries", "virtual:b91d44817373e81d6e7e947d0ffab7be1102a88897611d3cccd0c8726a19be124766efbf2118abe6cd0efa47ac4e0f53b27d2af94f4e44a553129f9b717ae854#npm:0.0.59"],\
+          ["volar-service-css", "virtual:55202fe1d2deb924c35d75893eed05be79f1ce998cb2df3d4e14ea66d24fb77cf67db904a59c2a0e16a8c5f2021288b1837c72f221c73a997d2222397af6c1f3#npm:0.0.59"],\
+          ["volar-service-emmet", "virtual:55202fe1d2deb924c35d75893eed05be79f1ce998cb2df3d4e14ea66d24fb77cf67db904a59c2a0e16a8c5f2021288b1837c72f221c73a997d2222397af6c1f3#npm:0.0.59"],\
+          ["volar-service-html", "virtual:55202fe1d2deb924c35d75893eed05be79f1ce998cb2df3d4e14ea66d24fb77cf67db904a59c2a0e16a8c5f2021288b1837c72f221c73a997d2222397af6c1f3#npm:0.0.59"],\
+          ["volar-service-prettier", "virtual:55202fe1d2deb924c35d75893eed05be79f1ce998cb2df3d4e14ea66d24fb77cf67db904a59c2a0e16a8c5f2021288b1837c72f221c73a997d2222397af6c1f3#npm:0.0.59"],\
+          ["volar-service-typescript", "virtual:55202fe1d2deb924c35d75893eed05be79f1ce998cb2df3d4e14ea66d24fb77cf67db904a59c2a0e16a8c5f2021288b1837c72f221c73a997d2222397af6c1f3#npm:0.0.59"],\
+          ["volar-service-typescript-twoslash-queries", "virtual:55202fe1d2deb924c35d75893eed05be79f1ce998cb2df3d4e14ea66d24fb77cf67db904a59c2a0e16a8c5f2021288b1837c72f221c73a997d2222397af6c1f3#npm:0.0.59"],\
           ["vscode-html-languageservice", "npm:5.3.0"],\
           ["vscode-uri", "npm:3.0.8"]\
         ],\
@@ -1854,10 +1861,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:b91d44817373e81d6e7e947d0ffab7be1102a88897611d3cccd0c8726a19be124766efbf2118abe6cd0efa47ac4e0f53b27d2af94f4e44a553129f9b717ae854#npm:2.4.0-alpha.18", {\
-        "packageLocation": "./.yarn/__virtual__/@volar-kit-virtual-db0335af8b/3/.yarn/berry/cache/@volar-kit-npm-2.4.0-alpha.18-3e56c1ac0f-10c0.zip/node_modules/@volar/kit/",\
+      ["virtual:55202fe1d2deb924c35d75893eed05be79f1ce998cb2df3d4e14ea66d24fb77cf67db904a59c2a0e16a8c5f2021288b1837c72f221c73a997d2222397af6c1f3#npm:2.4.0-alpha.18", {\
+        "packageLocation": "./.yarn/__virtual__/@volar-kit-virtual-cf8b784ab7/3/.yarn/berry/cache/@volar-kit-npm-2.4.0-alpha.18-3e56c1ac0f-10c0.zip/node_modules/@volar/kit/",\
         "packageDependencies": [\
-          ["@volar/kit", "virtual:b91d44817373e81d6e7e947d0ffab7be1102a88897611d3cccd0c8726a19be124766efbf2118abe6cd0efa47ac4e0f53b27d2af94f4e44a553129f9b717ae854#npm:2.4.0-alpha.18"],\
+          ["@volar/kit", "virtual:55202fe1d2deb924c35d75893eed05be79f1ce998cb2df3d4e14ea66d24fb77cf67db904a59c2a0e16a8c5f2021288b1837c72f221c73a997d2222397af6c1f3#npm:2.4.0-alpha.18"],\
           ["@types/typescript", null],\
           ["@volar/language-service", "npm:2.4.0-alpha.18"],\
           ["@volar/typescript", "npm:2.4.0-alpha.18"],\
@@ -1954,7 +1961,7 @@ const RAW_RUNTIME_STATE =
           ["@vscode/emmet-helper", "npm:2.9.3"],\
           ["emmet", "npm:2.4.7"],\
           ["jsonc-parser", "npm:2.3.1"],\
-          ["vscode-languageserver-textdocument", "npm:1.0.11"],\
+          ["vscode-languageserver-textdocument", "npm:1.0.12"],\
           ["vscode-languageserver-types", "npm:3.17.5"],\
           ["vscode-uri", "npm:2.1.2"]\
         ],\
@@ -3348,7 +3355,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["fay-welcome-client", "workspace:."],\
-          ["@astrojs/check", "virtual:039da4a98aaa698cfcbfdc126bb7cfe4e9dd2e8ea3f9748f226f1804adcb6476fa713c407a2a322925aa9c9ae0f0b45f6830d2e80f544ef5e23a3986029506e0#npm:0.8.2"],\
+          ["@astrojs/check", "virtual:039da4a98aaa698cfcbfdc126bb7cfe4e9dd2e8ea3f9748f226f1804adcb6476fa713c407a2a322925aa9c9ae0f0b45f6830d2e80f544ef5e23a3986029506e0#npm:0.9.2"],\
           ["@astrojs/react", "virtual:039da4a98aaa698cfcbfdc126bb7cfe4e9dd2e8ea3f9748f226f1804adcb6476fa713c407a2a322925aa9c9ae0f0b45f6830d2e80f544ef5e23a3986029506e0#npm:3.6.1"],\
           ["@astrojs/tailwind", "virtual:039da4a98aaa698cfcbfdc126bb7cfe4e9dd2e8ea3f9748f226f1804adcb6476fa713c407a2a322925aa9c9ae0f0b45f6830d2e80f544ef5e23a3986029506e0#npm:5.1.0"],\
           ["@astrojs/ts-plugin", "npm:1.9.1"],\
@@ -7129,10 +7136,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:b91d44817373e81d6e7e947d0ffab7be1102a88897611d3cccd0c8726a19be124766efbf2118abe6cd0efa47ac4e0f53b27d2af94f4e44a553129f9b717ae854#npm:0.0.59", {\
-        "packageLocation": "./.yarn/__virtual__/volar-service-css-virtual-2cd7e321bd/3/.yarn/berry/cache/volar-service-css-npm-0.0.59-55161da6b1-10c0.zip/node_modules/volar-service-css/",\
+      ["virtual:55202fe1d2deb924c35d75893eed05be79f1ce998cb2df3d4e14ea66d24fb77cf67db904a59c2a0e16a8c5f2021288b1837c72f221c73a997d2222397af6c1f3#npm:0.0.59", {\
+        "packageLocation": "./.yarn/__virtual__/volar-service-css-virtual-7119495f41/3/.yarn/berry/cache/volar-service-css-npm-0.0.59-55161da6b1-10c0.zip/node_modules/volar-service-css/",\
         "packageDependencies": [\
-          ["volar-service-css", "virtual:b91d44817373e81d6e7e947d0ffab7be1102a88897611d3cccd0c8726a19be124766efbf2118abe6cd0efa47ac4e0f53b27d2af94f4e44a553129f9b717ae854#npm:0.0.59"],\
+          ["volar-service-css", "virtual:55202fe1d2deb924c35d75893eed05be79f1ce998cb2df3d4e14ea66d24fb77cf67db904a59c2a0e16a8c5f2021288b1837c72f221c73a997d2222397af6c1f3#npm:0.0.59"],\
           ["@types/volar__language-service", null],\
           ["@volar/language-service", "npm:2.4.0-alpha.18"],\
           ["vscode-css-languageservice", "npm:6.3.0"],\
@@ -7154,10 +7161,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:b91d44817373e81d6e7e947d0ffab7be1102a88897611d3cccd0c8726a19be124766efbf2118abe6cd0efa47ac4e0f53b27d2af94f4e44a553129f9b717ae854#npm:0.0.59", {\
-        "packageLocation": "./.yarn/__virtual__/volar-service-emmet-virtual-8852b6c86b/3/.yarn/berry/cache/volar-service-emmet-npm-0.0.59-27f3acb094-10c0.zip/node_modules/volar-service-emmet/",\
+      ["virtual:55202fe1d2deb924c35d75893eed05be79f1ce998cb2df3d4e14ea66d24fb77cf67db904a59c2a0e16a8c5f2021288b1837c72f221c73a997d2222397af6c1f3#npm:0.0.59", {\
+        "packageLocation": "./.yarn/__virtual__/volar-service-emmet-virtual-9044c87e5e/3/.yarn/berry/cache/volar-service-emmet-npm-0.0.59-27f3acb094-10c0.zip/node_modules/volar-service-emmet/",\
         "packageDependencies": [\
-          ["volar-service-emmet", "virtual:b91d44817373e81d6e7e947d0ffab7be1102a88897611d3cccd0c8726a19be124766efbf2118abe6cd0efa47ac4e0f53b27d2af94f4e44a553129f9b717ae854#npm:0.0.59"],\
+          ["volar-service-emmet", "virtual:55202fe1d2deb924c35d75893eed05be79f1ce998cb2df3d4e14ea66d24fb77cf67db904a59c2a0e16a8c5f2021288b1837c72f221c73a997d2222397af6c1f3#npm:0.0.59"],\
           ["@emmetio/css-parser", "npm:0.4.0"],\
           ["@emmetio/html-matcher", "npm:1.3.0"],\
           ["@types/volar__language-service", null],\
@@ -7180,10 +7187,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:b91d44817373e81d6e7e947d0ffab7be1102a88897611d3cccd0c8726a19be124766efbf2118abe6cd0efa47ac4e0f53b27d2af94f4e44a553129f9b717ae854#npm:0.0.59", {\
-        "packageLocation": "./.yarn/__virtual__/volar-service-html-virtual-d14a101716/3/.yarn/berry/cache/volar-service-html-npm-0.0.59-3f83e98e36-10c0.zip/node_modules/volar-service-html/",\
+      ["virtual:55202fe1d2deb924c35d75893eed05be79f1ce998cb2df3d4e14ea66d24fb77cf67db904a59c2a0e16a8c5f2021288b1837c72f221c73a997d2222397af6c1f3#npm:0.0.59", {\
+        "packageLocation": "./.yarn/__virtual__/volar-service-html-virtual-2212823560/3/.yarn/berry/cache/volar-service-html-npm-0.0.59-3f83e98e36-10c0.zip/node_modules/volar-service-html/",\
         "packageDependencies": [\
-          ["volar-service-html", "virtual:b91d44817373e81d6e7e947d0ffab7be1102a88897611d3cccd0c8726a19be124766efbf2118abe6cd0efa47ac4e0f53b27d2af94f4e44a553129f9b717ae854#npm:0.0.59"],\
+          ["volar-service-html", "virtual:55202fe1d2deb924c35d75893eed05be79f1ce998cb2df3d4e14ea66d24fb77cf67db904a59c2a0e16a8c5f2021288b1837c72f221c73a997d2222397af6c1f3#npm:0.0.59"],\
           ["@types/volar__language-service", null],\
           ["@volar/language-service", "npm:2.4.0-alpha.18"],\
           ["vscode-html-languageservice", "npm:5.3.0"],\
@@ -7205,10 +7212,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:b91d44817373e81d6e7e947d0ffab7be1102a88897611d3cccd0c8726a19be124766efbf2118abe6cd0efa47ac4e0f53b27d2af94f4e44a553129f9b717ae854#npm:0.0.59", {\
-        "packageLocation": "./.yarn/__virtual__/volar-service-prettier-virtual-b958068869/3/.yarn/berry/cache/volar-service-prettier-npm-0.0.59-57d429405e-10c0.zip/node_modules/volar-service-prettier/",\
+      ["virtual:55202fe1d2deb924c35d75893eed05be79f1ce998cb2df3d4e14ea66d24fb77cf67db904a59c2a0e16a8c5f2021288b1837c72f221c73a997d2222397af6c1f3#npm:0.0.59", {\
+        "packageLocation": "./.yarn/__virtual__/volar-service-prettier-virtual-eade50a519/3/.yarn/berry/cache/volar-service-prettier-npm-0.0.59-57d429405e-10c0.zip/node_modules/volar-service-prettier/",\
         "packageDependencies": [\
-          ["volar-service-prettier", "virtual:b91d44817373e81d6e7e947d0ffab7be1102a88897611d3cccd0c8726a19be124766efbf2118abe6cd0efa47ac4e0f53b27d2af94f4e44a553129f9b717ae854#npm:0.0.59"],\
+          ["volar-service-prettier", "virtual:55202fe1d2deb924c35d75893eed05be79f1ce998cb2df3d4e14ea66d24fb77cf67db904a59c2a0e16a8c5f2021288b1837c72f221c73a997d2222397af6c1f3#npm:0.0.59"],\
           ["@types/prettier", null],\
           ["@types/volar__language-service", null],\
           ["@volar/language-service", "npm:2.4.0-alpha.18"],\
@@ -7232,10 +7239,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:b91d44817373e81d6e7e947d0ffab7be1102a88897611d3cccd0c8726a19be124766efbf2118abe6cd0efa47ac4e0f53b27d2af94f4e44a553129f9b717ae854#npm:0.0.59", {\
-        "packageLocation": "./.yarn/__virtual__/volar-service-typescript-virtual-9a64a2b3e4/3/.yarn/berry/cache/volar-service-typescript-npm-0.0.59-d606663f41-10c0.zip/node_modules/volar-service-typescript/",\
+      ["virtual:55202fe1d2deb924c35d75893eed05be79f1ce998cb2df3d4e14ea66d24fb77cf67db904a59c2a0e16a8c5f2021288b1837c72f221c73a997d2222397af6c1f3#npm:0.0.59", {\
+        "packageLocation": "./.yarn/__virtual__/volar-service-typescript-virtual-694ce160f3/3/.yarn/berry/cache/volar-service-typescript-npm-0.0.59-d606663f41-10c0.zip/node_modules/volar-service-typescript/",\
         "packageDependencies": [\
-          ["volar-service-typescript", "virtual:b91d44817373e81d6e7e947d0ffab7be1102a88897611d3cccd0c8726a19be124766efbf2118abe6cd0efa47ac4e0f53b27d2af94f4e44a553129f9b717ae854#npm:0.0.59"],\
+          ["volar-service-typescript", "virtual:55202fe1d2deb924c35d75893eed05be79f1ce998cb2df3d4e14ea66d24fb77cf67db904a59c2a0e16a8c5f2021288b1837c72f221c73a997d2222397af6c1f3#npm:0.0.59"],\
           ["@types/volar__language-service", null],\
           ["@volar/language-service", "npm:2.4.0-alpha.18"],\
           ["path-browserify", "npm:1.0.1"],\
@@ -7260,10 +7267,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:b91d44817373e81d6e7e947d0ffab7be1102a88897611d3cccd0c8726a19be124766efbf2118abe6cd0efa47ac4e0f53b27d2af94f4e44a553129f9b717ae854#npm:0.0.59", {\
-        "packageLocation": "./.yarn/__virtual__/volar-service-typescript-twoslash-queries-virtual-7b7abae07e/3/.yarn/berry/cache/volar-service-typescript-twoslash-queries-npm-0.0.59-4d291f8400-10c0.zip/node_modules/volar-service-typescript-twoslash-queries/",\
+      ["virtual:55202fe1d2deb924c35d75893eed05be79f1ce998cb2df3d4e14ea66d24fb77cf67db904a59c2a0e16a8c5f2021288b1837c72f221c73a997d2222397af6c1f3#npm:0.0.59", {\
+        "packageLocation": "./.yarn/__virtual__/volar-service-typescript-twoslash-queries-virtual-606ce735d2/3/.yarn/berry/cache/volar-service-typescript-twoslash-queries-npm-0.0.59-4d291f8400-10c0.zip/node_modules/volar-service-typescript-twoslash-queries/",\
         "packageDependencies": [\
-          ["volar-service-typescript-twoslash-queries", "virtual:b91d44817373e81d6e7e947d0ffab7be1102a88897611d3cccd0c8726a19be124766efbf2118abe6cd0efa47ac4e0f53b27d2af94f4e44a553129f9b717ae854#npm:0.0.59"],\
+          ["volar-service-typescript-twoslash-queries", "virtual:55202fe1d2deb924c35d75893eed05be79f1ce998cb2df3d4e14ea66d24fb77cf67db904a59c2a0e16a8c5f2021288b1837c72f221c73a997d2222397af6c1f3#npm:0.0.59"],\
           ["@types/volar__language-service", null],\
           ["@volar/language-service", "npm:2.4.0-alpha.18"],\
           ["vscode-uri", "npm:3.0.8"]\
@@ -7336,6 +7343,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../.yarn/berry/cache/vscode-languageserver-textdocument-npm-1.0.11-6fc94d2b7b-10c0.zip/node_modules/vscode-languageserver-textdocument/",\
         "packageDependencies": [\
           ["vscode-languageserver-textdocument", "npm:1.0.11"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:1.0.12", {\
+        "packageLocation": "../../.yarn/berry/cache/vscode-languageserver-textdocument-npm-1.0.12-5bc25d204a-10c0.zip/node_modules/vscode-languageserver-textdocument/",\
+        "packageDependencies": [\
+          ["vscode-languageserver-textdocument", "npm:1.0.12"]\
         ],\
         "linkType": "HARD"\
       }]\

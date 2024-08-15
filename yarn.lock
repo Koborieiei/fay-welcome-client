@@ -39,11 +39,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/check@npm:^0.8.2":
-  version: 0.8.2
-  resolution: "@astrojs/check@npm:0.8.2"
+"@astrojs/check@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "@astrojs/check@npm:0.9.2"
   dependencies:
-    "@astrojs/language-server": "npm:^2.12.1"
+    "@astrojs/language-server": "npm:^2.13.2"
     chokidar: "npm:^3.5.3"
     fast-glob: "npm:^3.3.1"
     kleur: "npm:^4.1.5"
@@ -52,7 +52,7 @@ __metadata:
     typescript: ^5.0.0
   bin:
     astro-check: dist/bin.js
-  checksum: 10c0/81c0e094124ec3fad73ad87af733d037b802dbdf8a602aea21ed3bc8bdd7652a1c3cde9d9f09fabfd8170d6584abf0d54fc7f71f94f632ead8a2ae744e97238f
+  checksum: 10c0/dcd3bbe6c3132da0d936f725416dff66653a27dfbdc4ac762782d43ea1fde1aa4e06afa61b7d1997fb697d54d048a5e80528d55250e6f4e1a8495bbd5b703855
   languageName: node
   linkType: hard
 
@@ -63,7 +63,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/compiler@npm:^2.9.0, @astrojs/compiler@npm:^2.9.1":
+"@astrojs/compiler@npm:^2.10.3":
+  version: 2.10.3
+  resolution: "@astrojs/compiler@npm:2.10.3"
+  checksum: 10c0/35e7a6e9d197924a3203afd3bd7bff39c8d4271516816c30173cca872302312c3748eefc5a5832523f49b98743115628a1b96922d7d96588a8d96e110a106b88
+  languageName: node
+  linkType: hard
+
+"@astrojs/compiler@npm:^2.9.0":
   version: 2.9.2
   resolution: "@astrojs/compiler@npm:2.9.2"
   checksum: 10c0/a714c3b818f965abddbdab27dfd0abcdf1533b0e186802a9ae21f6ae35cbdf847463443e23b985d3fa728eb2c94e258ed4d5f315cf626c1a07460c1d360adf4e
@@ -77,11 +84,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/language-server@npm:^2.12.1":
-  version: 2.12.1
-  resolution: "@astrojs/language-server@npm:2.12.1"
+"@astrojs/language-server@npm:^2.13.2":
+  version: 2.13.4
+  resolution: "@astrojs/language-server@npm:2.13.4"
   dependencies:
-    "@astrojs/compiler": "npm:^2.9.1"
+    "@astrojs/compiler": "npm:^2.10.3"
     "@jridgewell/sourcemap-codec": "npm:^1.4.15"
     "@volar/kit": "npm:~2.4.0-alpha.15"
     "@volar/language-core": "npm:~2.4.0-alpha.15"
@@ -108,7 +115,7 @@ __metadata:
       optional: true
   bin:
     astro-ls: bin/nodeServer.js
-  checksum: 10c0/dbcbcf120c8a5542672b9673d31f16c4f5a0b9470ed4bbae39d2aa721b9ed85d7b5b7dbd745e6b791ecd6d8182551873b090d70f98e455efe1b21beef046809b
+  checksum: 10c0/41c1b04028fed5f7a7c5806890affd8cbc52a544264e8d1f9a5552b11617280ce4978bfe070ba9b0018482eb7e2d3094f0bce7f824a9064b928a7c5ed028c994
   languageName: node
   linkType: hard
 
@@ -2852,7 +2859,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "fay-welcome-client@workspace:."
   dependencies:
-    "@astrojs/check": "npm:^0.8.2"
+    "@astrojs/check": "npm:^0.9.2"
     "@astrojs/react": "npm:^3.6.1"
     "@astrojs/tailwind": "npm:^5.1.0"
     "@astrojs/ts-plugin": "npm:^1.9.1"
@@ -6435,7 +6442,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vscode-languageserver-textdocument@npm:^1.0.1, vscode-languageserver-textdocument@npm:^1.0.11":
+"vscode-languageserver-textdocument@npm:^1.0.1":
+  version: 1.0.12
+  resolution: "vscode-languageserver-textdocument@npm:1.0.12"
+  checksum: 10c0/534349894b059602c4d97615a1147b6c4c031141c2093e59657f54e38570f5989c21b376836f13b9375419869242e9efb4066643208b21ab1e1dee111a0f00fb
+  languageName: node
+  linkType: hard
+
+"vscode-languageserver-textdocument@npm:^1.0.11":
   version: 1.0.11
   resolution: "vscode-languageserver-textdocument@npm:1.0.11"
   checksum: 10c0/1996a38e24571e05aa21dd4f46e0a6849e22301c9a66996762e77d9c6df3622de0bd31cd5742a0c0c47fb9dfd00b310ad08c44d08241873ea571edacd5238da6
