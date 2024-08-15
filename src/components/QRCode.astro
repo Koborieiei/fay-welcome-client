@@ -1,13 +1,12 @@
 ---
 import { Image } from 'astro:assets';
-import localThaiQR from '../../public/assets/test.jpg';
+import localThaiQR from '../assets/test.jpg';
 const { imgSrc, imgAlt, price, imei } = Astro.props;
-// const optimizedBackground = await getImage({src: localThaiQR, format: 'webp'});
 ---
 <qr-code data-price={price} data-imei={imei}>
     <div class="flex flex-col justify-center items-center mt-5">
         <div class="test p-2 w-80 ">
-            <img src="/public/assets/test.jpg" alt="A bird sitting on a nest of eggs."/>
+            <img src={localThaiQR.src} alt="A bird sitting on a nest of eggs."/>
         </div>
         <div class="mb-5 ">
             <Image id="toggle-img" class="min-w-full w-80 blur-sm" src={imgSrc} alt={imgAlt} inferSize={true}/>
