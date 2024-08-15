@@ -10,7 +10,7 @@ module.exports = {
         },
         slideUp: {
           '0%': { transform: 'translateY(0)', opacity: 0 },
-          '100%': { transform: 'translateY(-74%)', opacity: 1 },
+          '100%': { transform: 'translateY(-75%)', opacity: 1 },
         },
       },
       animation: {
