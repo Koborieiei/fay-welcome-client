@@ -1,6 +1,7 @@
 ---
 import QRCode from '../components/QRCode.astro';
 import Layout from '../layouts/Layout.astro';
+import Tooltip from '../components/Tooltip.astro';
 
 export async function getStaticPaths() {
     // Should be replaced with data from server
@@ -38,12 +39,11 @@ const splitedPrice = price?.split(".")[0]
 ---
 
 <Layout title="Welcome Machine.">
+
+    <Tooltip/>
     <main>
         <div class="flex flex-col justify-around h-full">
             <div class="mb-3">
-                <h2 class="text-4xl text-center text-black">
-                    เครื่องที่ {machineNo}
-                </h2>
                 <div class="mt-2 mb-2"></div>
                 <h1 class="text-7xl font-bold text-center text-black">
                     {splitedPrice} บาท
@@ -55,6 +55,10 @@ const splitedPrice = price?.split(".")[0]
 </Layout>
 
 <style>
+    body {
+        font-family: kanit, sans-serif;
+    }
+
     main {
         margin: auto;
         padding: 1rem;
@@ -63,7 +67,6 @@ const splitedPrice = price?.split(".")[0]
         color: white;
         font-size: 20px;
         line-height: 1.6;
-        font-family: kanit;
     }
 
 
