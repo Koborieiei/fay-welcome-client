@@ -3,13 +3,13 @@ import { Icon } from 'astro-icon/components'
 ---
 
 <div id="tooltip" class="hidden tooltip-box bg-white text-black">
-    <div class="flex justify-center items-center">
+    <div class="flex justify-center items-center mt-3">
         <div class="flex flex-row justify-center content-between">
             <div class="flex">
-                <Icon class="self-center w-32 flex-auto" name="screenshot" size={100}/>
+                <Icon class="self-center w-32 flex-auto" name="screenshot" size={80}/>
             </div>
             <div class="pr-5"></div>
-            <div class=" text-3xl flex-auto w-56 ">
+            <div class=" text-xl flex-auto w-44">
                 <span class="text-gray-400">พี่ๆ</span> <span>แคปหน้าจอนี้</span>
                 <br>
                 <span class="text-gray-400">แล้ว</span> <span>จ่ายในแอพธนาคาร</span>
@@ -29,8 +29,8 @@ import { Icon } from 'astro-icon/components'
     const closeTooltipButton = document.querySelector("#closeTooltip")
     closeTooltipButton?.addEventListener('click', () => {
         const tooltip = document.querySelector("#tooltip")
-        tooltip?.classList.add("animate-slideUp")
-        tooltip?.classList.remove("animate-slideDown")
+        tooltip?.classList.add("animate-slideDown")
+        tooltip?.classList.remove("animate-slideUp")
         window.setTimeout(() => {
             tooltip?.classList.add("hidden")
         }, 1000)
@@ -42,8 +42,8 @@ import { Icon } from 'astro-icon/components'
     .tooltip-box {
         position: fixed;
         width: 100%;
-        height: 25%;
-        border-bottom-right-radius: 50px;
-        border-bottom-left-radius: 50px;
+        height: 20%;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
     }
 </style>

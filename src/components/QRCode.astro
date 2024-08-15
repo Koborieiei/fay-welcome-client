@@ -116,9 +116,13 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
                         mqttClient.publish(topicToUpdateState, JSON.stringify(stateBusyPreparation), { retain: true });
                     }
 
-                    if (!tooltip.classList.contains("animate-slideDown")) {
-                        tooltip.classList.add("animate-slideDown")
-                        tooltip.classList.remove("hidden", "animate-slideUp")
+                    if (!tooltip.classList.contains("animate-slideUp")) {
+                        const safeAreaTop = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('env(safe-area-inset-top)')) || 0;
+                        const topPosition = paymentButton.getBoundingClientRect().bottom + safeAreaTop;
+
+                        tooltip.style.top = `${topPosition}px`;
+                        tooltip.classList.add("animate-slideUp")
+                        tooltip.classList.remove("hidden", "animate-slideDown")
                     }
 
                 });
