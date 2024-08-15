@@ -34,7 +34,6 @@ const RAW_RUNTIME_STATE =
           ["astro", "npm:4.12.2"],\
           ["astro-icon", "npm:1.1.0"],\
           ["mqtt", "npm:5.9.0"],\
-          ["sharp", "npm:0.33.4"],\
           ["tailwindcss", "npm:3.4.6"],\
           ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=b45daf"]\
         ],\
@@ -3363,7 +3362,6 @@ const RAW_RUNTIME_STATE =
           ["astro", "npm:4.12.2"],\
           ["astro-icon", "npm:1.1.0"],\
           ["mqtt", "npm:5.9.0"],\
-          ["sharp", "npm:0.33.4"],\
           ["tailwindcss", "npm:3.4.6"],\
           ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=b45daf"]\
         ],\
