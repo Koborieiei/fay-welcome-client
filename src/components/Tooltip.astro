@@ -27,7 +27,7 @@ import { Icon } from 'astro-icon/components'
 
 <script>
     const closeTooltipButton = document.querySelector("#closeTooltip")
-    closeTooltipButton.addEventListener('click', () => {
+    closeTooltipButton?.addEventListener('click', () => {
         const tooltip = document.querySelector("#tooltip")
         tooltip?.classList.add("animate-slideUp")
         tooltip?.classList.remove("animate-slideDown")
