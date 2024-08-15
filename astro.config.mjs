@@ -6,9 +6,6 @@ export default defineConfig({
   site: 'https://koborieiei.github.io',
   base: 'fay-welcome-client',
   integrations: [tailwind(), icon()],
-  experimental: {
-    assets: true,
-  },
   vite: {
     server: {
       fs: {
