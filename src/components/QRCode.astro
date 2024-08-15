@@ -1,13 +1,15 @@
 ---
+import { Image } from 'astro:assets';
+import localThaiQR from '../assets/thai_qr_logo.png';
 const { imgSrc, imgAlt, price, imei } = Astro.props;
 ---
 <qr-code data-price={price} data-imei={imei}>
     <div class="flex flex-col justify-center items-center mt-5">
-        <div class="bg-sky-950 p-5 w-80 ">
-            <h1 class="text-3xl text-center">THAI QR<br> PAYMENT</h1>
+        <div class="test p-2 w-80 ">
+            <Image src={localThaiQR} alt="thai-qr-logo"/>
         </div>
         <div class="mb-5 ">
-            <img id="toggle-img" class="min-w-full w-80 blur-sm" src={imgSrc} alt={imgAlt}/>
+            <Image id="toggle-img" class="min-w-full w-80 blur-sm" src={imgSrc} alt={imgAlt} inferSize={true}/>
         </div>
         <div class="mt-5 text-center">
             <button id="clickToPayButton" class="p-5 rounded-full text-3xl bg-blue-950 text-white">
@@ -179,3 +181,11 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
 
     customElements.define('qr-code', QRCode);
 </script>
+
+<style>
+
+    .test {
+        background-color: rgb(0, 54, 89);
+    }
+
+</style>
