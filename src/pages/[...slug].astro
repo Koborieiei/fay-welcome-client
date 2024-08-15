@@ -34,7 +34,7 @@ export async function getStaticPaths() {
     });
 }
 
-const { price, machineNo, imei } = Astro.props;
+const { price, imei } = Astro.props;
 const splitedPrice = price?.split(".")[0]
 ---
 
