@@ -9,7 +9,7 @@ export default defineConfig({
   vite: {
     server: {
       fs: {
-        allow: ['/Users/macbookpro/.yarn/'],
+        allow: ['/Users/macbookpro/.yarn/', '/Users/macbookpro/IdeaProjects/fay-welcome-client/'],
       },
     },
   },

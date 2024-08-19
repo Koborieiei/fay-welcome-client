@@ -39,17 +39,30 @@ const { title } = Astro.props;
 		height: 100%;
 		margin: 0;
 		padding: 0;
-		font-family: kanit, sans-serif;
+		font-family: Kanit, sans-serif;
 	}
+
 	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+		font-family: Menlo,
+		Monaco,
+		Lucida Console,
+		Liberation Mono,
+		DejaVu Sans Mono,
+		Bitstream Vera Sans Mono,
+		Courier New,
+		monospace;
+	}
+
+	@font-face {
+		font-family: 'Kanit';
+		src: url('/fay-welcome-client/fonts/Kanit-Regular.ttf') format('truetype'),
+		url('/fay-welcome-client/fonts/Kanit-Italic.ttf') format('truetype'),
+		url('/fay-welcome-client/fonts/Kanit-BoldItalic.ttf') format('truetype'),
+		url('/fay-welcome-client/fonts/Kanit-Bold.ttf') format('truetype'),
+		url('/fay-welcome-client/fonts/Kanit-Medium.ttf') format('truetype'),
+		url('/fay-welcome-client/fonts/Kanit-MediumItalic.ttf') format('truetype');
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
 	}
 </style>
