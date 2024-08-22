@@ -28,12 +28,13 @@ import { Icon } from 'astro-icon/components'
 <script>
     const closeTooltipButton = document.querySelector("#closeTooltip")
     closeTooltipButton?.addEventListener('click', () => {
-        const tooltip = document.querySelector("#tooltip")
+        const tooltip = document.querySelector("#tooltip") as HTMLDivElement
         tooltip?.classList.add("animate-slideDown")
         tooltip?.classList.remove("animate-slideUp")
+        tooltip.style.top = `750px`;
         window.setTimeout(() => {
             tooltip?.classList.add("hidden")
-        }, 1000)
+        }, 2000)
     })
 </script>
 
