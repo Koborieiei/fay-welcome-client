@@ -9,11 +9,11 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
             <img src={localThaiQR.src} alt="logo thai qr."/>
         </div>
         <div class="mb-5 ">
-            <Image id="toggle-img" class="min-w-full w-80 blur-sm" src={imgSrc} alt={imgAlt} inferSize={true}/>
+            <Image id="toggle-img" class="min-w-full w-80 blur-md" src={imgSrc} alt={imgAlt} inferSize={true}/>
         </div>
         <div class="mt-5 text-center">
-            <button id="clickToPayButton" class="p-5 rounded-full text-3xl bg-blue-950 text-white">
-                แสดงคิวอาร์
+            <button id="clickToPayButton" class="p-5 rounded-full text-3xl bg-blue-950 text-white" disabled>
+                แสดงคิวอาร์ <span id="countDownText"> </span>
             </button>
         </div>
 
@@ -46,7 +46,7 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
         })
 
     const topicToUpdateState = '1/status';
-    const timeoutInMS = 120000;
+    const timeoutInMS = 90000;
     const topicToOrder = '1/order';
     const promptpayPhoneNumber = "0924932476"
     let setTimeOutButton: number;
@@ -92,7 +92,7 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
                     () => {
                         paymentButton.innerText = PaymentButtonText.READY
                         paymentButton.disabled = false;
-                        img.classList.add('blur-sm')
+                        img.classList.add('blur-md')
                         img.src = qrCodePaymentImgFake
                     }, timeoutInMS
                 )
@@ -108,12 +108,12 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
                     }
 
                     if (
-                        img.classList.contains('blur-sm')
+                        img.classList.contains('blur-md')
                     ) {
                         setQRCodeBlurAndShowBtnTimeOut();
                         setBtnToBeQueueing();
                         img.src = qrCodePaymentImg
-                        img.classList.remove('blur-sm', 'brightness-50')
+                        img.classList.remove('blur-md', 'brightness-50')
                         mqttClient.publish(topicToOrder, orderPayload);
                         mqttClient.publish(topicToUpdateState, JSON.stringify(stateBusyPreparation), { retain: true });
                     }
@@ -159,7 +159,7 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
                 if (isShouldSetResetBtnToReady) {
                     setTimeOutButton = window.setTimeout(() => {
                         setBtnToReady();
-                        img.classList.add('blur-sm')
+                        img.classList.add('blur-md')
                         mqttClient.publish(topicToUpdateState, stateAvailablePreparation, { retain: true });
                     }, differenceInMilliseconds);
                 }
@@ -167,7 +167,7 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
 
             if (jsonPayload?.state === MachineStateMessage.AVAILABLE) {
                 setBtnToReady();
-                img.classList.add('blur-sm')
+                img.classList.add('blur-md')
                 clearTimeout(setTimeOutButton)
             }
 
