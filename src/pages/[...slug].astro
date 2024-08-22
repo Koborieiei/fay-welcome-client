@@ -52,7 +52,8 @@ const splitedPrice = price?.split(".")[0]
                     {splitedPrice} บาท
                 </h1>
             </div>
-            <QRCode price={price} imei={imei} imgAlt="thai-qr-logo" imgSrc="https://promptpay.io/0878128538/40"/>
+            // Need to change to price after this
+            <QRCode price={"1.00"} imei={imei} imgAlt="thai-qr-logo" imgSrc="https://promptpay.io/0878128538/40"/>
         </div>
     </main>
 </Layout>
