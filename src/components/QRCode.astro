@@ -71,15 +71,11 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
         constructor() {
             super();
             const { price, imei } = this.dataset
-            const hardCodePrice = "1.00"
-            const twoDigitPrice = hardCodePrice?.split(".")[0] || ""
-            const orderPayload = JSON.stringify({
-                imei: imei,
-                price: hardCodePrice
-            })
+            const twoDigitPrice = price?.split(".")[0] || ""
+            const orderPayload = JSON.stringify({ imei, price })
 
             // Phone number should be queried from back server.
-            const qrCodePaymentImg = this.generatePromptpayLink(promptpayPhoneNumber, twoDigitPrice);
+            const qrCodePaymentImg = this.generatePromptpayLink(promptpayPhoneNumber, "1.00");
             const qrCodePaymentImgFake = this.generatePromptpayLink("0824979555", "50");
 
             mqttClient.on('connect', () => {
