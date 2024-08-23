@@ -35,8 +35,9 @@ while true do
 
             _, sender, sms = sys.waitUntil("SMS_INC", 80000)
             log.info("sender is ", sender)
+            local isMatchedSender = string.find(sender, "Kbank")
 
-            while (sender ~= "Kbank" and sender ~= nil) do
+            while (not isMatchedSender and sender ~= nil) do
                 log.info("Retry to query SMS ", retryQuerySMS)
                 if retryQuerySMS == 3 then
                     break

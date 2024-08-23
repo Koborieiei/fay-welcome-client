@@ -71,10 +71,11 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
         constructor() {
             super();
             const { price, imei } = this.dataset
-            const twoDigitPrice = price?.split(".")[0] || ""
+            const hardCodePrice = "1.00"
+            const twoDigitPrice = hardCodePrice?.split(".")[0] || ""
             const orderPayload = JSON.stringify({
                 imei: imei,
-                price: price
+                price: hardCodePrice
             })
 
             // Phone number should be queried from back server.
