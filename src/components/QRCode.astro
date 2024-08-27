@@ -75,7 +75,7 @@ const { imgSrc, imgAlt, price, imei } = Astro.props;
             const orderPayload = JSON.stringify({ imei, price })
 
             // Phone number should be queried from back server.
-            const qrCodePaymentImg = this.generatePromptpayLink(promptpayPhoneNumber, "1.00");
+            const qrCodePaymentImg = this.generatePromptpayLink(promptpayPhoneNumber, twoDigitPrice);
             const qrCodePaymentImgFake = this.generatePromptpayLink("0824979555", "50");
 
             mqttClient.on('connect', () => {

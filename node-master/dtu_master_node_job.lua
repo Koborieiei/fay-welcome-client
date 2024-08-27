@@ -13,11 +13,18 @@ function notifyAvailableStatus()
     preparedStateChangeTransmitData[2] = encodedJSONData
     PronetSetSendCh(channelID, preparedStateChangeTransmitData)
 end
+
 function notifyPaymentByTopic(imei, price)
     local preparedTopicAndData = {}
     local publishConfirmTopicName = imei .. "/payment"
+    local machinePriceData = {}
+    machinePriceData.price = price
+    machinePriceData.message = "Successful"
+    local encodedJSONPriceData = json.encode(machinePriceData)
+
     preparedTopicAndData[1] = publishConfirmTopicName
-    preparedTopicAndData[2] = price
+    preparedTopicAndData[2] = encodedJSONPriceData
+
     PronetSetSendCh(channelID, preparedTopicAndData)
 end
 
@@ -35,9 +42,8 @@ while true do
 
             _, sender, sms = sys.waitUntil("SMS_INC", 80000)
             log.info("sender is ", sender)
-            local isMatchedSender = string.find(sender, "Kbank")
 
-            while (not isMatchedSender and sender ~= nil) do
+            while (sender ~= "KBank" and sender ~= nil) do
                 log.info("Retry to query SMS ", retryQuerySMS)
                 if retryQuerySMS == 3 then
                     break
@@ -62,4 +68,3 @@ while true do
     end
     sys.wait(1000)
 end
-
